@@ -1,0 +1,75 @@
+<span class="appender"></span>
+<div class="row">
+    <aside class="col s2">
+        <a href="#!/" class="waves-effect waves-light btn themeBtn"><i class="material-icons left">arrow_back</i> Tilbake</a>
+        <br /><br />
+        <div ng-if="permission == 'root'">
+            <a href class="waves-effect waves-light btn" ng-click="register()"><i class="material-icons left">group_add</i> Inviter</a>
+        </div>
+    </aside>
+    <div class="col s10 flipReverse">
+
+
+        <div ng-if="permission != 'root'">
+            <div class="row">
+                <div class="col s12 card" style="padding:20px;transform:scale(0.9);">
+                    <h3>Din brukerinformasjon</h3>
+                    <table>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{email}}</td>
+                        </tr>
+                        <tr>
+                            <td>Display-navn:</td>
+                            <td>{{nick}}</td>
+                        </tr>
+                        <tr>
+                            <td>Validert:</td>
+                            <td>{{validated}}</td>
+                        </tr>
+                        <tr style="border-bottom:none;">
+                            <td>Tillatelsesnivå:</td>
+                            <td>{{permission}}: {{permissionText}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-if="permission == 'root'">
+                <div class="row">
+                    <div class="col s12 card" style="padding:20px;transform:scale(0.9);position:relative;">
+                        <h3>Sideinnstillinger</h3>
+                        <site-settings></site-settings>
+                    </div>
+                </div>
+
+
+
+
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="registerOverlay">
+                        <ng-include src="'html/register.html'"></ng-include>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="list-user-cont">
+                        <list-users data="'test'" permission="permission"></list-users>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="permission != 'root'">
+            <div class="row">
+                <div class="col s12">
+                    <h3>Alle brukere</h3>
+                    <p>
+                        Du har ikke tillatelse til å redigere brukere.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

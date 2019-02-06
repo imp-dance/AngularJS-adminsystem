@@ -1,0 +1,51 @@
+<div ng-if="permission == 'root'">
+    <div class="notEditingUsers">
+    <h3 style="float:left;">Alle brukere</h3><!----><a ng-click="reLoad()" href="" style="display:none;" class="btn-floating btn-large waves-effect waves-light red refBut"><i class="material-icons">refresh</i></a>
+<table class="listUserTable">
+<thead>
+    <tr>
+        <th>Display-navn</th>
+        <th>Email</th>
+        <th>Tillatelsesnivå</th>
+        <th>Validert</th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="a in users" class="flipReverse">
+        <td>{{a.name}}</td>
+        <td>{{a.email}}</td>
+        <td>{{a.permission}}</td>
+        <td><i class="material-icons">{{(a.validated == "true") ? 'check_box':'check_box_outline_blank'}}</i></td>
+        <td><a href data-id="{{a.id}}" class="btn-floating btn-tiny waves-effect waves-light red deleteUser themeBtn" ng-click="editUser($event)"><i class="material-icons">edit</i></a></td>
+    </tr>
+</tbody>
+</table>
+</div>
+<div class="editPopup">
+    <h3>Rediger bruker</h3><br />
+    <input type="text" ng-model="hiddenEditID" style="display:none" />
+    <div class="input-field">
+        <label for="edEmail" class="active">Email</label>
+        <input type="email" autocomplete="off" ng-model="edEmail" class="edEmail" name="edEmail" />
+    </div>
+    <div class="input-field">
+        <label for="edName" class="active">Navn</label>
+        <input type="text" autocomplete="falses" ng-model="edName" name="edName" />
+    </div>
+    <div class="input-field">
+        <select name="till" id="till" ng-model="edPermission" style="display:block;" required>
+            <option value="" disabled selected>Tillatelsesnivå</option>
+            <option value="1">1 - Legg inn/rediger artikler</option>
+            <option value="2">2 - Rediger sider, legge inn/redigere artikler, se filer</option>
+            <option value="3">3 - Legg inn/register sider & artikler, filopplastning</option>
+            <option value="root">root - Alt</option>
+        </select>
+    </div>
+    <div class="input-field">
+        <a href ng-click="backToUsers()" class="waves-effect waves-light btn themeBtn"><i class="material-icons left">arrow_back</i>Avbryt</a>
+        <a href ng-click="saveUser()" class="waves-effect waves-light btn saveBtn"><i class="material-icons left">save</i>Lagre</a>
+        <a href ng-click="deleteUser()" class="waves-effect waves-light btn red lighten-2 right"><i class="material-icons left">delete_forever</i>Fjern bruker</a>
+    </div>
+</div>
+</div>

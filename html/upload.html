@@ -1,0 +1,72 @@
+<div ng-if="permission != '1'">
+<span class="appender"></span>
+<div class="row flipIn">
+    <div class="col s2">
+        <a href="#!/" class="waves-effect waves-light btn themeBtn"><i class="material-icons left">arrow_back</i> Tilbake</a>
+    </div>
+    <div class="col s10">
+        <form action="php/uploadFiles.php" method="post" enctype="multipart/form-data" ng-if="permission != '1' && permission != '2'">
+            <input type="hidden" name="token" class="hiddenTokenUpload" />
+        <div class="row">
+            <div class="col s12 card" style="padding:20px !important;">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Velg filer</span>
+                        <input type="file" class="fileSelector" name="files[]" ng-model="files" multiple>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Last opp en eller flere filer">
+                    </div>
+                </div>
+                <input type="submit" value="Last opp" class="waves-effect waves-light btn uploadBut" />
+            </div>
+        </div>
+        </form>
+        <div class="row" ng-if="permission == '2'">
+                <div class="col s12">
+                    <p>Du har kun tillatelse til å se filer.</p>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col s12">
+                    <h3>Alle filer</h3>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col s12">
+                    <div class="input-field">
+                        <input style="display:none" type="text" name="fakeusernameremembered"/>
+                        <input style="display:none" type="password" name="fakepasswordremembered"/>
+                        <label for="search">Søk etter filnavn</label>
+                        <input type="text" autocomplete="off" ng-model="searchii" onkeyup="doTableSearch(this, '.filesTable')" name="searchii" />
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+                <div class="col s12">
+                    <table class="filesTable">
+                        <thead>
+                            <tr>
+                                <th>Navn</th>
+                                <th>Type</th>
+                                <th>Størrelse</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="a in docs">
+                                <td>{{a.name}}</td>
+                                <td>{{a.ext}}</td>
+                                <td>{{a.size}}</td>
+                                <td><a href="{{a.url}}" target="_blank" class="btn-floating btn-tiny waves-effect waves-light red openFile themeBtn"><i class="material-icons">open_in_new</i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+<div ng-if="permission == '1'">
+    Du har ikke tillatelse til å se / laste opp filer.
+</div>

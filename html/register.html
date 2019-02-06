@@ -1,0 +1,39 @@
+<div class="registerBox" ng-click="childClick($event)">
+    <div class="row">
+        <div class="col s12">
+            <h5>Inviter moderator</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <form class="loginForm card" autocomplete="falses">
+                <input type="hidden" autocomplete="false" />
+                <span class="errorMsg"></span>
+                <div class="input-field">
+                    <label for="username">Email</label>
+                    <input type="email" autocomplete="off" ng-model="regUsername" class="username" name="username" />
+                </div>
+                <div class="input-field">
+                    <label for="username">Navn</label>
+                    <input type="text" autocomplete="falses" ng-model="regName" name="name" />
+                </div>
+                <div class="input-field">
+                    <textarea id="regMessage" style="min-height:75px;" class="materialize-textarea" ng-model="regMessage"></textarea>
+                    <label for="regMessage">Melding for email-invitasjon</label>
+                </div>
+                <div class="input-field">
+                    <select name="till" id="till" ng-model="regPermission" style="display:block;" required>
+                        <option value="" disabled selected>Tillatelsesnivå</option>
+                        <option value="1">1 - Legg inn/rediger artikler</option>
+                        <option value="2">2 - Rediger sider, legge inn/redigere artikler, se filer</option>
+                        <option value="3">3 - Legg inn/register sider & artikler, filopplastning</option>
+                        <option value="root" disabled>root - Alt</option>
+                    </select>
+                </div>
+                <button class="register waves-effect waves-light btn-small" ng-click="doRegister()">Inviter ny bruker</button>
+                <button class="register waves-effect waves-light btn-small red lighten-2" onclick="document.querySelector('.registerOverlay').click();return false;">Avbryt</button>
+                <!--<button class="waves-effect waves-light btn-small" ng-click="register()">Create account</button>-->
+            </form>
+        </div>
+    </div>
+</div>
