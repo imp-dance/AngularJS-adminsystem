@@ -1,1 +1,1 @@
-# imp-backendsystem
+I'll be putting some proper documentation here in a lil while, but for now I'm just dumping the project. It's a very light and simple drag and drop to your webserver-type backend system that essentially gives you users with permissions to post articles, easily adaptable to your own database. 
