@@ -14,11 +14,11 @@ include('../db.php');
 $servername = "localhost"; // server
 $username = "root"; // login
 $password = "password"; // password
-
+$db = "database" // database
 */
 $conn = new mysqli($servername, $username, $password);
 $conn->set_charset("utf8");
-mysqli_select_db($conn,"imp");
+mysqli_select_db($conn,$db);
 if (!$conn){
 	$data['status'] = "error";
 	$data['message'] = "connection lost";
