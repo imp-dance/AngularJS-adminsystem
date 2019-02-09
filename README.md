@@ -1,6 +1,6 @@
 I'll be putting some proper documentation here in a lil while, but for now I'm just dumping the project. It's a very light and simple drag and drop to your webserver-type backend system that essentially gives you users with permissions to post articles, easily adaptable to your own database. 
 
-## Contribute / setup
+## Setup
 If you do want to check it out already, here is the setup process:
 1. Fork / clone repository
 2. Place the files on a server with access to a database, either locally or remotely
